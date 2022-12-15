@@ -1,7 +1,8 @@
 import React from 'react'
 
-export const index = () => {
+export const Dashboard = () => {
   return (
-    <div>index</div>
+    <div>
+    </div>
   )
 }

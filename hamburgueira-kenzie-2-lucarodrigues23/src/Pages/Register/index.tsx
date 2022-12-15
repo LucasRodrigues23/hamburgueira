@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const index = () => {
+export const Register = () => {
   return (
-    <div>index</div>
+    <div>Register</div>
   )
 }

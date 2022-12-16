@@ -5,7 +5,7 @@ interface ibuttonprops{
   theme: 'primary' | 'grey'
   type: 'button' | 'submit'
   onclick: React.MouseEventHandler<HTMLButtonElement>
-  children: string
+  children: React.ReactNode
   disabled: boolean
 }
 

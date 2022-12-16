@@ -1,3 +1,4 @@
+import { ProductsProvider } from './Contexts/ProductsContext'
 import { UserProvider } from './Contexts/UserContext'
 import { SampleRoutes } from './Routes/index '
 import { Global } from'./Styles/GlobalStyles'
@@ -7,7 +8,9 @@ export const App = () => {
     <div className="App">
       <Global />
       <UserProvider>
-        <SampleRoutes />
+      <ProductsProvider>
+      <SampleRoutes />
+      </ProductsProvider>
       </UserProvider>
     </div>
   )

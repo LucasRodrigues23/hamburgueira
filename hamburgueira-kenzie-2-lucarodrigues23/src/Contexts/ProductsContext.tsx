@@ -13,7 +13,7 @@ export const ProductsProvider = ({children}: iProductsProviderProps) => {
             try {
                 const { data } = await api.get('/products', {
                     headers: {
-                        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGdtYWlsLmNvbSIsImlhdCI6MTY3MTEzODQ1OCwiZXhwIjoxNjcxMTQyMDU4LCJzdWIiOiI2MiJ9.hBTOU7MVFDkYr8as4qopYTCACesyFqYWt0L3dwK3vyw` }
+                        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGdtYWlsLmNvbSIsImlhdCI6MTY3MTE5NDk3MywiZXhwIjoxNjcxMTk4NTczLCJzdWIiOiIxMiJ9.HuairZdDyeC-LyHZmMiuc3ss9I1Z2O1O7B3RUvF-sB0` }
                 })
                 console.log(data);
                 

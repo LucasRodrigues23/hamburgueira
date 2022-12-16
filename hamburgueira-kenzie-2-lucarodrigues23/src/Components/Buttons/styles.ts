@@ -46,6 +46,17 @@ export const ButtonStyled = styled.button<iButtonStyledProps>`
                 color: var(--color-grey1);
                 }
                 `
+            case 'white':
+                return css`
+                background-color: var(--color-grey0);
+                border: 1px solid var(--color-grey0);
+                color: var(--color-grey2);
+                :hover{
+                background-color: var(--color-primary);
+                border: 1px solid var(--color-primary);
+                color: var(--color-grey0);
+                }
+                `    
         }
     }}
         

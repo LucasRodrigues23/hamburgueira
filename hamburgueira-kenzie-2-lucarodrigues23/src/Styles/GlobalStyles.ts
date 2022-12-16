@@ -27,6 +27,7 @@ body,html{
     height: 100vh;
 }
 body {
+    font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
 }
@@ -37,4 +38,5 @@ button {
 ul, ol, li{
     list-style: none;
 }
+
 `

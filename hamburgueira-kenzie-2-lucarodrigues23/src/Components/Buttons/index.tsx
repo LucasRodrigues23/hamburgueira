@@ -2,9 +2,9 @@ import { ButtonStyled } from './styles'
 
 interface ibuttonprops{
   size: 'lg' | 'md'
-  theme: 'primary' | 'grey'
+  theme: 'primary' | 'grey' | 'white'
   type: 'button' | 'submit'
-  onclick: React.MouseEventHandler<HTMLButtonElement>
+  onclick?: React.MouseEventHandler<HTMLButtonElement>
   children: React.ReactNode
   disabled: boolean
 }

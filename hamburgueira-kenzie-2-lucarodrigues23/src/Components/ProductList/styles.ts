@@ -4,7 +4,10 @@ export const ProductListStyled = styled.ul`
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin-top: 30px;
+    width: 85%;
+    max-width: 1500px;
+    align-items: center;
+    justify-content: center;
 
     @media only screen and (max-width: 768px){
         overflow: scroll;

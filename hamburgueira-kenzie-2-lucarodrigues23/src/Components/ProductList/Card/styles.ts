@@ -14,7 +14,7 @@ export const CardStyled = styled.li`
     gap: 20px;
 
     :hover {
-        border: 2px solid var(--color-grey3);
+        border: 2px solid var(--color-primary);
 
         & > button {
             background-color: var(--color-primary);

@@ -1,17 +1,16 @@
-import React from 'react'
 import { FormRegister } from '../../Components/Forms/RegisterForm'
 import { LogoDisplay } from '../../Components/LogoDisplay'
-import { LoginBox } from '../Login/styles'
+import { RegisterBox } from './styles'
 
 export const Register = () => {
   return (
-    <LoginBox>
+    <RegisterBox>
+      <section>
+       <LogoDisplay />
+      </section>
       <section>
        <FormRegister />
       </section>
-      <section>
-        <LogoDisplay />
-      </section>
-    </LoginBox>
+    </RegisterBox>
   )
 }

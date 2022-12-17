@@ -6,6 +6,7 @@ import { LoginSchema } from './loginSchema'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useContext, useState } from 'react'
 import { UserContext } from '../../../Contexts/UserContext'
+import { InputPassword } from '../InputPassword'
 
 interface iLoginFormValues{
   email: string
@@ -28,9 +29,9 @@ export const FormLogin = () => {
     <form onSubmit={handleSubmit(submit)}>
       <h2>Login</h2>
       <Input label={'Email'} type={'email'} id={'email'} placeholder={'Digite seu email'} register={register('email')} disabled={loading}></Input>
-      <Input label={'Senha'} type={'password'} id={'password'} placeholder={'Digite sua senha'} register={register('password')}></Input>
+      <InputPassword label={'Senha'} type={'password'} id={'password'} placeholder={'Digite sua senha'} register={register('password')}></InputPassword>
       <Button size={'lg'} theme={'primary'} type={'submit'} disabled={false}>Logar</Button>
-      <span></span>
+      <span>Crie sua conta para saborear muitas delícias e matar sua fome!</span>
       <Link to='/register'>Cadastrar-se</Link>
     </form>
     </>

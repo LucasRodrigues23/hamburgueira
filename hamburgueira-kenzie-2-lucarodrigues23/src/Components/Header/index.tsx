@@ -6,29 +6,38 @@ import { Button } from '../Buttons'
 import { useForm } from 'react-hook-form'
 import { useContext } from 'react'
 import { UserContext } from '../../Contexts/UserContext'
-export const Header = () => {
+import { ProductsContext } from '../../Contexts/ProductsContext'
+
+interface iHeaderProps{
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const Header = ({setShowModal}: iHeaderProps) => {
   const { userLogout } = useContext(UserContext)
+  const { currentCart, searching } = useContext(ProductsContext)
   const { register, handleSubmit } = useForm({
       mode: 'onBlur',
       defaultValues: {
         search: ''
       },
     })
-  
-  const searching = (data: any) => {
-    console.log(data)
-  }
+  const submit = (data: any) => {
+    searching(data.search)
+  } 
   return (
     <>
         <HeaderStyled>
+          <div>
             <img src={logo} alt="logo" />
             <div>
-               <form onSubmit={handleSubmit(searching)}>
+               <form onKeyUp={handleSubmit(submit)}>
                     <input type="text" placeholder='Digitar Pesquisa' id='search' {...register('search')} />
-                    <Button size={'md'} theme={'primary'} type={'submit'} disabled={false}><FaSearch /></Button>
+                    <Button size={'md'} theme={'primary'} type={'button'} disabled={false}><FaSearch /></Button>
                 </form>
-                <Button size={'md'} theme={'white'} type={'button'} onclick={() => console.log('Open Cart')} disabled={false}><FaShoppingCart /></Button>
+                <span>{currentCart.length}</span>
+                <Button size={'md'} theme={'white'} type={'button'} onclick={() => setShowModal(true)} disabled={false}><FaShoppingCart /></Button>
                 <Button size={'md'} theme={'white'} type={'button'} onclick={() => userLogout()} disabled={false}><FiLogOut /></Button> 
+            </div>
             </div>
         </HeaderStyled>
     </>

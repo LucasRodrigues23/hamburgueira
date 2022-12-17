@@ -40,4 +40,18 @@ export interface iProductsProviderProps{
 
 export interface iProductsProvider{
     products: Array<object>
-}  
+    currentCart: Array<iProduct>
+    cartTotal: number
+    setCartTotal: React.Dispatch<React.SetStateAction<number>>
+    setCurrentCart: React.Dispatch<React.SetStateAction<iProduct[]>>
+    filteredProducts: Array<iProduct>
+    addToCart: (product: iProduct) => void
+    searching: (data: string) => void
+}
+export interface iProduct{
+        id: number
+        name: string
+        category: string
+        price: number
+        img: string
+}

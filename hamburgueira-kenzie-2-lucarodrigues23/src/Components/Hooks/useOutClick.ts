@@ -1,18 +1,20 @@
 import { useEffect, useRef } from 'react'
 
-interface iUseOutClickProps{
-   callback: Function
-}
 
-export const useOutClick = (callback: iUseOutClickProps) => {
-  const ref = useRef(null)
+export const useOutClick = (callback: any) => {
+  const ref = useRef<HTMLDivElement>(null)
   
-  /* useEffect(() => {
-    function modalOutClick(e) {
-       const target = e.target
+useEffect(() => {
+    function modalOutClick(e: MouseEvent) {
+       const target = e.target as HTMLDivElement
        const element = ref.current
+       
+       if(!element){
+         return null
+       }
+
        if (!element.contains(target)) {
-          callback()
+            callback()
        }
     }
     window.addEventListener('mousedown', modalOutClick)
@@ -20,7 +22,7 @@ export const useOutClick = (callback: iUseOutClickProps) => {
     return () => {
        window.removeEventListener('mousedown', modalOutClick)
     }
- }, []) */
+}, []) 
 
   return ref
 }

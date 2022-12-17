@@ -1,17 +1,17 @@
+import { useContext } from 'react'
+import { ProductsContext } from '../../../Contexts/ProductsContext'
+import { iProduct } from '../../../Contexts/types'
 import { Button } from '../../Buttons'
 import { CardStyled } from './styles'
 
-interface iCardProps{
-    product: {
-    id?: number
-    name?: string
-    category?: string
-    price?: number
-    img?: string
-  }
+export interface iCardProps{
+  product: iProduct
+  
 }
+
 export const Card = ({product}: iCardProps) => {
   
+  const { addToCart } =  useContext(ProductsContext)
   return (
     <>
     <CardStyled>
@@ -21,7 +21,7 @@ export const Card = ({product}: iCardProps) => {
         <h3>{product.name}</h3>
         <p>{product.category}</p>
         <span>R${product.price?.toFixed(2)}</span>
-        <Button size={'md'} theme={'primary'} type={'button'} onclick={(e) => console.log(e)} disabled={false}>Adicionar</Button>
+        <Button size={'md'} theme={'primary'} type={'button'} onclick={(e) => addToCart(product)} disabled={false}>Adicionar</Button>
     </CardStyled>
     </>
   )

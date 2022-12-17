@@ -4,11 +4,11 @@ import { Card } from './Card'
 import { ProductListStyled } from './styles'
 
 export const ProductList = () => {
-    const { products } = useContext(ProductsContext)
+    const { filteredProducts } = useContext(ProductsContext)
   return (
     <>
     <ProductListStyled>
-        {products.map((product, i) => <Card key={i} product={product} />)}
+        {filteredProducts.map((product, i) => <Card key={i} product={product} />)}
     </ProductListStyled>
     </>
   )

@@ -6,6 +6,8 @@ import { UserContext } from '../../../Contexts/UserContext'
 import { Input } from '../Input'
 import { RegisterSchema } from './RegisterSchema'
 import { Button } from '../../Buttons'
+import { FormRegisterStyled, FormRegisterTitleBox } from './styles'
+import { InputPassword } from '../InputPassword'
 
 interface iRegisterFormValues{
     name?: string
@@ -27,20 +29,20 @@ export const FormRegister = () => {
     }  
   return (
     <>
-    <form onSubmit={handleSubmit(submit)}>
-        <div>
+    <FormRegisterStyled onSubmit={handleSubmit(submit)}>
+        <FormRegisterTitleBox>
             <h2>Cadastro</h2>
             <Link to={'/login'}>Retornar para o login</Link>
-        </div>
+        </FormRegisterTitleBox>
         <Input label={'Nome'} id={'name'} type={'text'} placeholder={'Digite seu nome'} register={register('name')} disabled={loading}></Input>
 
         <Input label={'Email'} id={'email'} type={'email'} placeholder={'Digite seu email'} register={register('email')} disabled={loading}></Input>
         
-        <Input label={'Senha'} id={'password'} type={'password'} placeholder={'Digite sua senha'} register={register('password')} disabled={loading}></Input>
+        <InputPassword label={'Senha'} id={'password'} type={'password'} placeholder={'Digite sua senha'} register={register('password')} disabled={loading}></InputPassword>
         
-        <Input label={'Repetir Senha'} id={'confirmPassword'} type={'password'} placeholder={'Repita sua senha'} register={register('confirmPassword')} disabled={loading}></Input>
-        <Button size={'lg'} theme={'white'} type={'submit'} disabled={loading}>Cadastrar</Button>
-    </form>
+        <InputPassword label={'Repetir Senha'} id={'confirmPassword'} type={'password'} placeholder={'Repita sua senha'} register={register('confirmPassword')} disabled={loading}></InputPassword>
+        <Button size={'lg'} theme={'white'} type={'submit'} disabled={!loading}>Cadastrar</Button>
+    </FormRegisterStyled>
     </>
   )
 }

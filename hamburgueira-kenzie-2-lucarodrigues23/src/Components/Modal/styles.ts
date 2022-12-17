@@ -29,14 +29,15 @@ export const ModalWrapper = styled.div`
 export const ModalBox = styled.div`
     background: var(--color-grey0);
     width: 95%;
-    max-width: 369px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-
-    & > div{
+    gap: 10px;
+`
+export const ModalTitle = styled.div`
     width: 100%;
     background-color: var(--color-primary);
     display: flex;
@@ -59,6 +60,5 @@ export const ModalBox = styled.div`
     font-weight: 700;
     font-size: 14px;
     color: var(--color-grey1);
-}
 }
 `

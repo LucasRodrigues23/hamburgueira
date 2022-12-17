@@ -12,7 +12,7 @@ export const UserProvider = ({children}: iUserContextProps) => {
     const navigate = useNavigate()
     const [user, setUser] = useState<iUserData | null>(null)
     const [contextLoad, setContextLoad] = useState(true)
-
+    
     useEffect(() => {
       const authUser = async () => {
         const token = localStorage.getItem('@hamburgueira-kenzie-token')
@@ -45,14 +45,13 @@ export const UserProvider = ({children}: iUserContextProps) => {
       try {
         setLoading(true)
         const { data } = await api.post('/login', formData)
-        toast.success(`Olá ${data.user.name}`, {theme: 'light', autoClose: 1000})
+        toast.success(`Bem vindo ${data.user.name}`)
         navigate('/home')
         localStorage.setItem('@hamburgueira-kenzie-token', (data.accessToken))
         localStorage.setItem('@hamburgueira-kenzie-id', JSON.stringify(data.user.id))
         setUser(data.user)
-        
       } catch (error) {
-        toast.error('Algo deu errado, tente novamente', {theme: 'light', autoClose: 1000})
+        toast.error(`${error}`)
       } finally {
         setLoading(false)
       }
@@ -62,10 +61,10 @@ export const UserProvider = ({children}: iUserContextProps) => {
       try {
         setLoading(true)
         const { data } = await api.post('/users' , formData)
-        toast.success('Agora é só logar e aproveitar!', {theme: 'light', autoClose: 1000})
+        toast.success(`Opa faça login e aproveite`)
         navigate('/login')
       } catch (error) {
-        toast.error(`Algo deu errado tente novamente`, {theme: 'light', autoClose: 1000})
+        toast.error(`${error}`)
       } finally {
         setLoading(false)
       }

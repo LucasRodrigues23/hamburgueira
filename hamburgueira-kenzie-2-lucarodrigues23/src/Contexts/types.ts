@@ -1,3 +1,5 @@
+import React from "react"
+
 export interface iUserContextProps{
     children: React.ReactNode
 }
@@ -16,9 +18,11 @@ export interface iFormData{
 }
 
 export interface iUserProvider{
-    loading: boolean
-    user: object
-    userLogin: (formData: iFormData) => Promise<void>
+    contextLoad: boolean
+    user: iUserData | null
+    userLogin: (formData: iFormData, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => Promise<void>
+    userLogout: () => void
+    userRegister: (FormData: iFormData, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => Promise<void>
 }
 
 export interface iUserState{

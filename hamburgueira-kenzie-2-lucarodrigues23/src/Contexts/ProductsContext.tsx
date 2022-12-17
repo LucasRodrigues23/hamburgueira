@@ -9,13 +9,13 @@ export const ProductsProvider = ({children}: iProductsProviderProps) => {
     const [products, setProducts] = useState([] as Array<object>)
     useEffect(() => {
         const getProducts = async () => {
-            const token = localStorage.getItem('@hamburgueria-kenzie-token')
+            const token = localStorage.getItem('@hamburgueira-kenzie-token')
+         
             try {
                 const { data } = await api.get('/products', {
                     headers: {
-                        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGdtYWlsLmNvbSIsImlhdCI6MTY3MTE5NDk3MywiZXhwIjoxNjcxMTk4NTczLCJzdWIiOiIxMiJ9.HuairZdDyeC-LyHZmMiuc3ss9I1Z2O1O7B3RUvF-sB0` }
+                        authorization: `Bearer ${token}` }
                 })
-                console.log(data);
                 
                 setProducts(data)
             } catch (error) {

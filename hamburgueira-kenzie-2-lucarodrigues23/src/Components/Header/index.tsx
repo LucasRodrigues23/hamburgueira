@@ -4,8 +4,10 @@ import { FaSearch, FaShoppingCart } from'react-icons/fa'
 import { FiLogOut } from'react-icons/fi'
 import { Button } from '../Buttons'
 import { useForm } from 'react-hook-form'
+import { useContext } from 'react'
+import { UserContext } from '../../Contexts/UserContext'
 export const Header = () => {
-
+  const { userLogout } = useContext(UserContext)
   const { register, handleSubmit } = useForm({
       mode: 'onBlur',
       defaultValues: {
@@ -26,7 +28,7 @@ export const Header = () => {
                     <Button size={'md'} theme={'primary'} type={'submit'} disabled={false}><FaSearch /></Button>
                 </form>
                 <Button size={'md'} theme={'white'} type={'button'} onclick={() => console.log('Open Cart')} disabled={false}><FaShoppingCart /></Button>
-                <Button size={'md'} theme={'white'} type={'button'} onclick={() => console.log('Logout')} disabled={false}><FiLogOut /></Button> 
+                <Button size={'md'} theme={'white'} type={'button'} onclick={() => userLogout()} disabled={false}><FiLogOut /></Button> 
             </div>
         </HeaderStyled>
     </>

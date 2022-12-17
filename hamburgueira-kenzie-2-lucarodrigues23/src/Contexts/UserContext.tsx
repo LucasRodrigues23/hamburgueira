@@ -10,53 +10,76 @@ export const UserContext = createContext({} as iUserProvider)
 
 export const UserProvider = ({children}: iUserContextProps) => {
     const navigate = useNavigate()
-    const [loading, setLoading] = useState(false)
-    const [user, setUser] = useState({} as iUserData)
+    const [user, setUser] = useState<iUserData | null>(null)
+    const [contextLoad, setContextLoad] = useState(true)
 
     useEffect(() => {
       const authUser = async () => {
-        const token = localStorage.getItem('@hamburgueria-kenzie-token')
-  
+        const token = localStorage.getItem('@hamburgueira-kenzie-token')
+        const userId = localStorage.getItem('@hamburgueira-kenzie-id')
+        
+        
         if (!token) {
-          setLoading(false)
+          setContextLoad(false)
           return
         }
   
         try {
-          const { data } = await api.get(`/users/${user.id}`, {
+          const { data } = await api.get(`/users/${userId}`, {
             headers: {
-            authorization: `Bearer ${token}` }
+            authorization: `Bearer ${token}`}
           })
+          setUser(data)
         } catch (error) {
           navigate('/login')
+          
   
         } finally {
-          setLoading(false)
+          setContextLoad(false)
         }
-        
       }
       authUser()
     }, [])
 
-    const userLogin = async (formData: iFormData) => {
+    const userLogin = async (formData: iFormData, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => {
       try {
         setLoading(true)
         const { data } = await api.post('/login', formData)
-        toast.success(`Olá ${data.user.name}`, {theme: 'light', autoClose: 2000})
+        toast.success(`Olá ${data.user.name}`, {theme: 'light', autoClose: 1000})
         navigate('/home')
-        localStorage.setItem('@hamburgueira-kenzie-token', JSON.stringify(data.user.accessToken))
-  
-      } catch (error) {
-        toast.error('Algo deu errado, tente novamente', {theme: 'light', autoClose: 2000})
+        localStorage.setItem('@hamburgueira-kenzie-token', (data.accessToken))
+        localStorage.setItem('@hamburgueira-kenzie-id', JSON.stringify(data.user.id))
+        setUser(data.user)
         
+      } catch (error) {
+        toast.error('Algo deu errado, tente novamente', {theme: 'light', autoClose: 1000})
       } finally {
         setLoading(false)
       }
     }
+
+    const userRegister = async (formData:  iFormData, setLoading:  React.Dispatch<React.SetStateAction<boolean>>) => {
+      try {
+        setLoading(true)
+        const { data } = await api.post('/users' , formData)
+        toast.success('Agora é só logar e aproveitar!', {theme: 'light', autoClose: 1000})
+        navigate('/login')
+      } catch (error) {
+        toast.error(`Algo deu errado tente novamente`, {theme: 'light', autoClose: 1000})
+      } finally {
+        setLoading(false)
+      }
+    }
+    const userLogout = () => {
+      localStorage.removeItem('@hamburgueira-kenzie-token')
+      localStorage.removeItem('@hamburgueira-kenzie-id')
+      setUser(null)
+      navigate('/login')
+    }
     
     
       return(
-        <UserContext.Provider value={{ loading, user, userLogin }}>
+        <UserContext.Provider value={{ user, userLogin, contextLoad, userLogout, userRegister }}>
           {children}
         </UserContext.Provider>
      )

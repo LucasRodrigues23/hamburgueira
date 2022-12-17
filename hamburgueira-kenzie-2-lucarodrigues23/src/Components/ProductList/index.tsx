@@ -8,7 +8,7 @@ export const ProductList = () => {
   return (
     <>
     <ProductListStyled>
-        {products.map((product) => <Card product={product} />)}
+        {products.map((product, i) => <Card key={i} product={product} />)}
     </ProductListStyled>
     </>
   )

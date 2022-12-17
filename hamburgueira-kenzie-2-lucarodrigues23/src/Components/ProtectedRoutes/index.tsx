@@ -4,9 +4,9 @@ import { UserContext } from '../../Contexts/UserContext'
 
 export const ProtectRoutes = () => {
 
-    const {loading, user} =  useContext(UserContext)
-    
-    if(loading) {
+    const {contextLoad , user} =  useContext(UserContext)
+
+    if(contextLoad) {
         return null
     } 
     return user ? <Outlet /> : <Navigate to={'/login'} />

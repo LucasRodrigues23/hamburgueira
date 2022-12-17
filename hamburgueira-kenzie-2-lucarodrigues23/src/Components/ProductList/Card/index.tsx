@@ -11,7 +11,6 @@ interface iCardProps{
   }
 }
 export const Card = ({product}: iCardProps) => {
-  console.log(product);
   
   return (
     <>

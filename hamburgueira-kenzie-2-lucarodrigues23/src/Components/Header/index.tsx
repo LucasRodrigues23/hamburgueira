@@ -34,7 +34,7 @@ export const Header = ({setShowModal}: iHeaderProps) => {
                     <input type="text" placeholder='Digitar Pesquisa' id='search' {...register('search')} />
                     <Button size={'md'} theme={'primary'} type={'button'} disabled={false}><FaSearch /></Button>
                 </form>
-                <span>{currentCart.length}</span>
+                <span>{currentCart? currentCart.length : 0}</span>
                 <Button size={'md'} theme={'white'} type={'button'} onclick={() => setShowModal(true)} disabled={false}><FaShoppingCart /></Button>
                 <Button size={'md'} theme={'white'} type={'button'} onclick={() => userLogout()} disabled={false}><FiLogOut /></Button> 
             </div>

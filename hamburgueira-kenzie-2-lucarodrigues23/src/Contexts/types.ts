@@ -47,6 +47,8 @@ export interface iProductsProvider{
     filteredProducts: Array<iProduct>
     addToCart: (product: iProduct) => void
     searching: (data: string) => void
+    removeCartProduct: (product: iProduct) => void
+    subProductCart: (product: iProduct) => void
 }
 export interface iProduct{
         id: number

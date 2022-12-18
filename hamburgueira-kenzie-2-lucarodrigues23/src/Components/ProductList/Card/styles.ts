@@ -4,7 +4,7 @@ export const CardStyled = styled.li`
     width: 300px;
     min-width: 250px;
     height: 348px;
-    background: var(--color-grey0);
+    background: transparent;
     border: 2px solid var(--color-grey1);
     border-radius: 5px;
     display: flex;

@@ -4,7 +4,7 @@ export const HeaderStyled = styled.div`
     width: 100%;
     background-color: var(--color-grey0);
     margin-bottom: 50px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 20px -10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px 2px;
 
     & > div {
     margin: 0 auto;
@@ -39,8 +39,13 @@ export const HeaderStyled = styled.div`
         font-size: 14px;
         color: var(--color-grey0);
         position: absolute;
-        right: 50px;
+        right: 60px;
         top: 8px;
+
+        @media only screen and (max-width: 768px){
+            right: 60px;
+            top: 55px;
+        }
     }
 
     & > button {

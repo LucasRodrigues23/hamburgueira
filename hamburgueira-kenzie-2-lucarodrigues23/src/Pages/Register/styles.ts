@@ -10,13 +10,15 @@ export const RegisterBox = styled.div`
 
     @media only screen and (max-width: 768px){
     flex-direction: column;
-    & > section {
-        width: 95%;
-    }
     }
 
     & > section {
         width: 50%;
         max-width: 500px;
         padding: 20px;
+
+        @media only screen and (max-width: 768px){
+        width: 100%;
+        padding: 5px;
+        }
     }`

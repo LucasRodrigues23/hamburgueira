@@ -10,15 +10,17 @@ export const LoginBox = styled.div`
 
     @media only screen and (max-width: 768px){
     flex-direction: column-reverse;
-    & > section {
-        width: 95%;
-    }
     }
 
     & > section {
         width: 50%;
         max-width: 500px;
         padding: 20px;
+
+        @media only screen and (max-width: 768px){
+        width: 100%;
+        padding: 5px;
+        }
 
         & > form {
             display: flex;
@@ -27,6 +29,10 @@ export const LoginBox = styled.div`
             align-items: center;
             box-shadow: 0px 0px 30px -20px rgba(0, 0, 0, 0.25);
             padding: 25px;
+            @media only screen and (max-width: 768px){
+            width: 95%;
+            padding: 5px;
+            }
             
             & > h2 {
                 width: 95%;

@@ -6,17 +6,22 @@ import { CartStyled, EmptyCart } from './styles'
 
 export const Cart = () => {
   const {currentCart, setCurrentCart, cartTotal, setCartTotal} = useContext(ProductsContext)
-
+  const noRepeatProductsCart = currentCart.filter((elem, i, arr) => i === arr.indexOf(elem))
   const removeAll = () =>{
     setCurrentCart([])
     setCartTotal(0)
+    localStorage.removeItem('@hamburgueria-kenzie-cart:')
   }
+  console.log(noRepeatProductsCart);
+  
+  console.log(noRepeatProductsCart.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+  
   if (currentCart.length >0) {
     return (
     <>
     <CartStyled>
       <ul>
-        {currentCart.map((product, i) => <CardCart key={i} product={product} />)}
+        {noRepeatProductsCart.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0).map((product, i) => <CardCart key={i} product={product} />)}
       </ul>
       <div>
         <div>

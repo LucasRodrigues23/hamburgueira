@@ -9,14 +9,13 @@ export const ProductsContext = createContext({} as iProductsProvider)
 export const ProductsProvider = ({children}: iProductsProviderProps) => {
 
     const [products, setProducts] = useState([] as Array<iProduct>)
-    const [filteredProducts, setFilteredProducts] = useState([] as Array<iProduct>)
+    const [filteredProducts, setFilteredProducts] = useState<iProduct[]>([])
     const [cartTotal, setCartTotal] = useState(0)
-    const [currentCart, setCurrentCart] = useState([] as Array<iProduct>)
-    console.log(products, filteredProducts);
-    
+    const [currentCart, setCurrentCart] = useState<iProduct[]>(JSON.parse(`${localStorage.getItem('@hamburgueria-kenzie-cart:')}`) || [])
 
     const { user } = useContext(UserContext)
     useEffect(() => {
+
         const getProducts = async () => {
             const token = localStorage.getItem('@hamburgueira-kenzie-token')
          
@@ -37,17 +36,20 @@ export const ProductsProvider = ({children}: iProductsProviderProps) => {
 
 
     const addToCart = (product: iProduct) => {
+
         setCurrentCart((oldSales) => [...oldSales, product])
+        
         toast.success('Produto adicionado ao carrinho!')
         if (product.price) {
             setCartTotal(cartTotal + product.price)
-        }
-        localStorage.setItem('@hamburgueria-kenzie-cart:', JSON.stringify(currentCart))
+        } 
   }
 
+  useEffect(() => {
+     localStorage.setItem('@hamburgueria-kenzie-cart:', JSON.stringify(currentCart))
+  }, [currentCart])
+  
   const searching = (data: string) => {
-    console.log(products);
-    
     if (products) {
         setFilteredProducts(products.filter((elem) =>
       elem.name.toUpperCase().replace(/[\u0300-\u036f]/g, "").includes(data.toUpperCase().replace(/[\u0300-\u036f]/g, ""))
@@ -57,9 +59,18 @@ export const ProductsProvider = ({children}: iProductsProviderProps) => {
   }
     }
     
+    const removeCartProduct = (product: iProduct) => {    
+       setCurrentCart(currentCart.filter((elem) => elem.name !== product.name))
+       setCartTotal(currentCart.filter((elem) => elem.name !== product.name).reduce((acc, elem) => acc + elem.price, 0))
+    }
 
+    const subProductCart = (product: iProduct) => {
+        const i = currentCart.findIndex((elem) => elem.name === product.name)
+        setCurrentCart(currentCart.filter((elem, index) => index !== i ))
+        setCartTotal(currentCart.filter((elem, index) => index !== i ).reduce((acc, elem) => acc + elem.price, 0))
+      }
     return (
-        <ProductsContext.Provider value={{products, addToCart, searching, cartTotal, setCartTotal,  currentCart, setCurrentCart, filteredProducts}}>
+        <ProductsContext.Provider value={{removeCartProduct, subProductCart, products, addToCart, searching, cartTotal, setCartTotal,  currentCart, setCurrentCart, filteredProducts}}>
             {children}
         </ProductsContext.Provider>
     )

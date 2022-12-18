@@ -1,4 +1,4 @@
-import { useOutClick } from '../Hooks/useOutClick'
+import { useOutClick } from '../../Hooks/useOutClick'
 import { ModalBox, ModalTitle, ModalWrapper } from './styles'
 
 interface iModalProps{

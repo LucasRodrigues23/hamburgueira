@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { ProductsContext } from '../../../Contexts/ProductsContext'
 
 export const CardCart = ({product}: iCardProps) => {
-  const { currentCart } = useContext(ProductsContext)
+  const { currentCart, removeCartProduct, addToCart, subProductCart } = useContext(ProductsContext)
 
   return (
     <>
@@ -17,12 +17,12 @@ export const CardCart = ({product}: iCardProps) => {
         <div>
             <p>{product.name}</p>
             <div>
-              <button>-</button>
-              <p></p>
-              <button>+</button>
+              <button type='button' onClick={() => subProductCart(product)}>-</button>
+              <p>{currentCart.filter(elem => elem.name === product.name).length}</p>
+              <button type='button' onClick={() => addToCart(product)}>+</button>
             </div>
         </div>
-        <button><FaRegTrashAlt /></button>
+        <button type='button' onClick={() =>removeCartProduct(product)}><FaRegTrashAlt /></button>
     </CardCartStyled>
     </>
   )

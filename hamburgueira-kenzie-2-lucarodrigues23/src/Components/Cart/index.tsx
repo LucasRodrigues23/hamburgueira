@@ -12,9 +12,6 @@ export const Cart = () => {
     setCartTotal(0)
     localStorage.removeItem('@hamburgueria-kenzie-cart:')
   }
-  console.log(noRepeatProductsCart);
-  
-  console.log(noRepeatProductsCart.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
   
   if (currentCart.length >0) {
     return (

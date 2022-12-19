@@ -10,9 +10,10 @@ export const ProductListStyled = styled.ul`
     justify-content: center;
 
     @media only screen and (max-width: 768px){
-        overflow: scroll;
+        overflow-y: scroll;
         flex-direction: row;
-        flex-wrap: nowrap;   
+        flex-wrap: nowrap;
+        justify-content: flex-start;   
     }
 
 `

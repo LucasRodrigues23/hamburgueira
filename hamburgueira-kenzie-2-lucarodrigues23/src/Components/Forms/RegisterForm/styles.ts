@@ -6,7 +6,13 @@ export const FormRegisterStyled = styled.form`
     gap: 20px;
     align-items: center;
     box-shadow: 0px 0px 30px -20px rgba(0, 0, 0, 0.25);
-    padding: 25px;  
+    padding: 25px;
+
+    & > p {
+        color: var(--color-secondary);
+        font-size: 12px;
+        font-weight: 600;
+    }
 `
 
 export const FormRegisterTitleBox = styled.div`

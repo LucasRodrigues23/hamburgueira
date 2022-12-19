@@ -18,7 +18,10 @@ export const ProductsProvider = ({children}: iProductsProviderProps) => {
 
         const getProducts = async () => {
             const token = localStorage.getItem('@hamburgueira-kenzie-token')
-         
+            
+            if (!token) {
+                return null
+            }
             try {
                 const { data } = await api.get('/products', {
                     headers: {

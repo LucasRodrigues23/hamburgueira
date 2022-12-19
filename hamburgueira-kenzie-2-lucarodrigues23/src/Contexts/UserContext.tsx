@@ -50,8 +50,8 @@ export const UserProvider = ({children}: iUserContextProps) => {
         localStorage.setItem('@hamburgueira-kenzie-token', (data.accessToken))
         localStorage.setItem('@hamburgueira-kenzie-id', JSON.stringify(data.user.id))
         setUser(data.user)
-      } catch (error) {
-        toast.error(`${error}`)
+      } catch (error) {  
+        toast.error(`Ops Algo deu errado, tente novamente`)
       } finally {
         setLoading(false)
       }

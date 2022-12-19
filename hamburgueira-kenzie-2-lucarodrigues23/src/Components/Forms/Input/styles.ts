@@ -44,7 +44,6 @@ export const InputStyled = styled.div`
         outline-style: none;
         border-radius: 5px;
         border-style: none;
-        outline-style: none;
         ::placeholder {
             color: var(--color-grey1);
         }

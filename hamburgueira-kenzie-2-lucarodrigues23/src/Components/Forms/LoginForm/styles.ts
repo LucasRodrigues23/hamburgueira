@@ -31,5 +31,11 @@ export const FormLoginStyled = styled.form`
             font-weight: 600;
             font-size: 16px;
         }
+
+        & > p {
+        color: var(--color-secondary);
+        font-size: 12px;
+        font-weight: 600;
+    }
         
 `

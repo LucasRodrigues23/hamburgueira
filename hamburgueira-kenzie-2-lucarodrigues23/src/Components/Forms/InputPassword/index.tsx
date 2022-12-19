@@ -20,7 +20,7 @@ export const InputPassword = ({disabled, label, id, placeholder, register}: iInp
 
     <>
        <PasswordBox>
-        <label>{label}</label>
+        <label htmlFor={id}>{label}</label>
        <InputPwd id={id} type={visible ? 'text': 'password'} placeholder={placeholder} {...register} disabled={disabled}></InputPwd>
        <PwdButton type='button' onClick={() => setVisible(!visible)}>{visible ? <FaEyeSlash />: <FaEye />}</PwdButton> 
        </PasswordBox> 

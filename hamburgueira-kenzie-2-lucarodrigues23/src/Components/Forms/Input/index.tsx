@@ -14,7 +14,7 @@ export const Input = ({label, id, type, placeholder, register, disabled}: iInput
   return (
     <>
         <InputStyled>
-        <label>{label}</label>
+        <label htmlFor={id}>{label}</label>
         <input id={id} type={type} placeholder={placeholder} {...register} disabled={disabled} />
         </InputStyled>
     </>

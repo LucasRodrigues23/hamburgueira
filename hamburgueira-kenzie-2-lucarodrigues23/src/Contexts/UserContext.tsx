@@ -22,6 +22,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
 
       if (!token) {
         setContextLoad(false)
+        localStorage.removeItem('@hamburgueria-kenzie-cart:')
         return
       }
 
@@ -34,7 +35,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         setUser(data)
       } catch (error) {
         navigate('/login')
-
+        localStorage.removeItem('@hamburgueria-kenzie-cart:')
 
       } finally {
         setContextLoad(false)
@@ -76,6 +77,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   const userLogout = () => {
     localStorage.removeItem('@hamburgueira-kenzie-token')
     localStorage.removeItem('@hamburgueira-kenzie-id')
+    localStorage.removeItem('@hamburgueria-kenzie-cart:')
     setUser(null)
     navigate('/login')
   }

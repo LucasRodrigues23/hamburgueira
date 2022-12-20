@@ -24,7 +24,7 @@ export const ModalWrapper = styled.div`
         opacity: 100%;
     }
 }
-` 
+`
 
 export const ModalBox = styled.div`
     background: var(--color-grey0);

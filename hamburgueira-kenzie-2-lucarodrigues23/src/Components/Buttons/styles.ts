@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-interface iButtonStyledProps{
+interface iButtonStyledProps {
     size: 'lg' | 'md'
     theme: 'primary' | 'grey'
 }
@@ -9,7 +9,7 @@ export const ButtonStyled = styled.button<iButtonStyledProps>`
     border-radius: 8px;
     transition: 0.5ms;
 
-    ${({size}) => {
+    ${({ size }) => {
         switch (size) {
             case 'lg':
                 return css`
@@ -20,10 +20,10 @@ export const ButtonStyled = styled.button<iButtonStyledProps>`
                 return css`
                 padding: 10px 20px;
                 `
-        }   
+        }
     }}
 
-    ${({theme}) => {
+    ${({ theme }) => {
         switch (theme) {
             case 'primary':
                 return css`
@@ -56,7 +56,7 @@ export const ButtonStyled = styled.button<iButtonStyledProps>`
                 border: 1px solid var(--color-primary);
                 color: var(--color-grey0);
                 }
-                `    
+                `
         }
     }}
         

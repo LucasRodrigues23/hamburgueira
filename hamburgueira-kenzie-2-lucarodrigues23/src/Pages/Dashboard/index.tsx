@@ -11,7 +11,7 @@ export const Dashboard = () => {
 
     <DashoboardStyled>
       {showModal && <Modal setShowModal={setShowModal}>{<Cart />}</Modal>}
-      <Header setShowModal={setShowModal}/>
+      <Header setShowModal={setShowModal} />
       <ProductList />
     </DashoboardStyled>
   )

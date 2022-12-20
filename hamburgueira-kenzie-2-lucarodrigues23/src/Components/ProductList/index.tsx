@@ -4,12 +4,12 @@ import { Card } from './Card'
 import { ProductListStyled } from './styles'
 
 export const ProductList = () => {
-    const { filteredProducts } = useContext(ProductsContext)
+  const { filteredProducts } = useContext(ProductsContext)
   return (
     <>
-    <ProductListStyled>
+      <ProductListStyled>
         {filteredProducts.map((product, i) => <Card key={i} product={product} />)}
-    </ProductListStyled>
+      </ProductListStyled>
     </>
   )
 }

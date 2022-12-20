@@ -1,23 +1,23 @@
 import React from "react"
 
-export interface iUserContextProps{
+export interface iUserContextProps {
     children: React.ReactNode
 }
 
-export interface iUserData{
+export interface iUserData {
     email: string
     password: string
     name: string
     id: number
 }
-  
-export interface iFormData{
+
+export interface iFormData {
     name?: string
     email: string
     password: string
 }
 
-export interface iUserProvider{
+export interface iUserProvider {
     contextLoad: boolean
     user: iUserData | null
     userLogin: (formData: iFormData, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => Promise<void>
@@ -25,20 +25,20 @@ export interface iUserProvider{
     userRegister: (FormData: iFormData, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => Promise<void>
 }
 
-export interface iUserState{
+export interface iUserState {
     accessToken: string
-      user: {
-          email: string
-          name: string
-          id: number
-      }
-  }
+    user: {
+        email: string
+        name: string
+        id: number
+    }
+}
 
-export interface iProductsProviderProps{
+export interface iProductsProviderProps {
     children: React.ReactNode
 }
 
-export interface iProductsProvider{
+export interface iProductsProvider {
     products: Array<object>
     currentCart: Array<iProduct>
     cartTotal: number
@@ -50,10 +50,14 @@ export interface iProductsProvider{
     removeCartProduct: (product: iProduct) => void
     subProductCart: (product: iProduct) => void
 }
-export interface iProduct{
-        id: number
-        name: string
-        category: string
-        price: number
-        img: string
+export interface iProduct {
+    id: number
+    name: string
+    category: string
+    price: number
+    img: string
+}
+
+export interface iRequestError {
+    error: string
 }

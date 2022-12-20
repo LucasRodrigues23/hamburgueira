@@ -1,6 +1,6 @@
 import { ButtonStyled } from './styles'
 
-interface ibuttonprops{
+interface ibuttonprops {
   size: 'lg' | 'md'
   theme: 'primary' | 'grey' | 'white'
   type: 'button' | 'submit'
@@ -9,11 +9,11 @@ interface ibuttonprops{
   disabled: boolean
 }
 
-export const Button = ({size, theme, type, onclick, children, disabled}: ibuttonprops) => {
+export const Button = ({ size, theme, type, onclick, children, disabled }: ibuttonprops) => {
 
   return (
     <>
-    <ButtonStyled size={size} theme={theme} type={type} onClick={onclick} disabled={disabled}>{children}</ButtonStyled>
+      <ButtonStyled size={size} theme={theme} type={type} onClick={onclick} disabled={disabled}>{children}</ButtonStyled>
     </>
   )
 }

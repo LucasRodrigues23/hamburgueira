@@ -6,10 +6,10 @@ export const Register = () => {
   return (
     <RegisterBox>
       <section>
-       <LogoDisplay />
+        <LogoDisplay />
       </section>
       <section>
-       <FormRegister />
+        <FormRegister />
       </section>
     </RegisterBox>
   )

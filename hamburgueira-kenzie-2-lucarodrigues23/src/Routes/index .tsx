@@ -7,7 +7,7 @@ import { Register } from "../Pages/Register"
 
 
 export const SampleRoutes = () => {
-    return(
+    return (
         <Routes>
             <Route element={<ProtectRoutes />}>
                 <Route path='home' element={<Dashboard />} />

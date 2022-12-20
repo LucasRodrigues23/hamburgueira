@@ -6,7 +6,7 @@ export const Login = () => {
   return (
     <LoginBox>
       <section>
-       <FormLogin />
+        <FormLogin />
       </section>
       <section>
         <LogoDisplay />

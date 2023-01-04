@@ -1,4 +1,3 @@
-import React from 'react'
 import { InputStyled } from './styles'
 import { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
@@ -12,12 +11,13 @@ interface iInputProps {
   error?: FieldError
 }
 
-export const Input = ({ label, id, type, placeholder, register, disabled }: iInputProps) => {
+export const Input = ({ label, id, type, placeholder, register, disabled, error }: iInputProps) => {
   return (
     <>
       <InputStyled>
         <label htmlFor={id}>{label}</label>
         <input id={id} type={type} placeholder={placeholder} {...register} disabled={disabled} />
+        {error && <span>{error.message}</span>}
       </InputStyled>
     </>
   )

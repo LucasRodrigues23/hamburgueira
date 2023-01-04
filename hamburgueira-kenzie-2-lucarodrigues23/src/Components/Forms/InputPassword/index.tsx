@@ -1,7 +1,7 @@
 import { useState } from 'react'
-
 import { InputPwd, PasswordBox, PwdButton } from './styles'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
+
 
 interface iInputPasswordtProps {
   label: string

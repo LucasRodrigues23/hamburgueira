@@ -8,7 +8,7 @@ export const PasswordBox = styled.div`
     gap: 10px;
     width: 95%;
     background-color: transparent;
-    border: 2px solid var(--color-grey1);
+    border-bottom: 2px solid var(--color-grey1);
     border-radius: 4px;
     position: relative;
 
@@ -24,7 +24,7 @@ export const PasswordBox = styled.div`
     }
 
     :focus-within {
-        border: 2px solid var(--color-primary);
+        border-bottom: 2px solid var(--color-primary);
 
         & > label {
             color: var(--color-primary);
@@ -36,7 +36,7 @@ export const PasswordBox = styled.div`
     }
 
     :hover {
-        border: 2px solid var(--color-primary);
+        border-bottom: 2px solid var(--color-primary);
 
         & > label {
             color: var(--color-primary);

@@ -6,9 +6,7 @@ export const InputStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 95%;
-    background-color: white;
-    border-bottom: 3px solid var(--color-grey1);
-    position: relative;
+    border-bottom: 3px solid var(--color-grey300);
     outline-style: none;
 
     :focus-within {
@@ -29,24 +27,22 @@ export const InputStyled = styled.div`
     & > label{
         margin-left: 10px;
         border-style: none;
-        color: grey;
-        padding: 0px 5px;
-        background-color: white;
+        color: var(--color-grey300);
+        padding: 0px 2px;
         align-self: start;
-        position: absolute;
         width: max-content;
         top: -10px;
     }
 
     & > input{
         width: 100%;
-        padding: 15px;
+        padding: 10px;
         border-style: none;
         outline-style: none;
         border-radius: 5px;
         border-style: none;
         ::placeholder {
-            color: var(--color-grey1);
+            color: var(--color-grey300);
         }
     }
 
